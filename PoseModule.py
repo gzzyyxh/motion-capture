@@ -10,13 +10,13 @@ class PoseDetector:
         self.mode = mode
         self.upBody = upBody
         self.smooth = smooth
+        self.enable_segmentation=False
         self.detectionCon = detectionCon
         self.trackCon = trackCon
 
         self.mpDraw = mp.solutions.drawing_utils
         self.mpPose = mp.solutions.pose
-        self.pose = self.mpPose.Pose(
-            self.mode, self.upBody, self.smooth, self.detectionCon, self.trackCon)
+        self.pose = self.mpPose.Pose(self.mode, self.upBody, self.smooth, self.enable_segmentation, self.detectionCon, self.trackCon)
 
     def findPose(self, img, draw=True):
         imgRGB = cv2.cvtColor(img, cv2.COLOR_BGR2RGB)
@@ -43,7 +43,7 @@ class PoseDetector:
 
 
 def main():
-    cap = cv2.VideoCapture('videos/a.mp4')  # make VideoCapture(0) for webcam
+    cap = cv2.VideoCapture('videos/1.mp4')  # make VideoCapture(0) for webcam
     pTime = 0
     detector = PoseDetector()
     while True:
