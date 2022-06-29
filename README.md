@@ -1,6 +1,6 @@
 # Motion Capture based on Unreal Engine
 
-finishing soon...
+In progress...
 
 ## Show
 
